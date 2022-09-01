@@ -4,7 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class Setting extends Model
 {
-    protected $table = 'settings';
+    protected $fillable = [
+      'slug',
+      'value',
+    ];
+
+    public $timestamps = false;
+
+    public function scopeSlugValue($query, $slug)
+    {
+        return $query->where('slug', $slug)->value('value');
+    }
 }

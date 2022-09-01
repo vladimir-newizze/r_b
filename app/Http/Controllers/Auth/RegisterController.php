@@ -43,24 +43,9 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'email' => $data['email'],
-            'name' => $data['name'],
-            'phone' =>  $data['phone'],
-        ]);
-    }
-
     public function registration(Request $request)
     {
-        return response()->json([
+        response()->json([
             $request->validate([
                 'phone' => 'required|numeric|digits_between:1,25',
                 'email' =>'required|max:25',
@@ -68,6 +53,8 @@ class RegisterController extends Controller
                 'accept' => 'accepted',
             ])
         ]);
+
+        return $this->create($request);
     }
 
     public function identify(Request $request)
@@ -81,5 +68,33 @@ class RegisterController extends Controller
                 'cvv' => 'required|integer|between:0,999',
             ])
         ]);
+    }
+
+    public function create(Request $request)
+    {
+        try {
+            if (User::where('email', $request->email)->exists()) {
+                return response()->json([
+                    'success' => false, 
+                    'errors' => ['User with this email address already exists']
+                ], 422);
+            }
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'customer_id' => rand(100000000,999999999)
+            ]);
+
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'success' => false, 
+                'errors' => $exception->getMessage()
+            ], 422);
+        }
     }
 }

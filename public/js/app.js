@@ -2070,7 +2070,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/login', this.form).then(function () {
         console.log('success');
 
-        _this.$router.push("/home");
+        _this.$router.push("/verification_page");
       })["catch"](function (error) {
         var errors = Object.values(error.response.data.errors).flat();
         errors.forEach(function (element) {
@@ -2079,7 +2079,6 @@ __webpack_require__.r(__webpack_exports__);
           _this.errors.push(element);
         });
         _this.clicks++;
-        console.log(_this.clicks);
 
         if (_this.clicks > 5) {
           _this.showUniqueModal();

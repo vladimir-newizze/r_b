@@ -16,7 +16,7 @@ Route::get('/{any}', function () {
 })->where('any', '(.*)');
 
 Route::post('/login', 'Auth\LoginController@login');
-Route::post('/verification', 'Auth\LoginController@verification');
+Route::post('/verification', 'Auth\VerificationController@verification');
 
 Route::post('/complete', 'Auth\RegisterController@complete');
 Route::post('/identify', 'Auth\RegisterController@identify');

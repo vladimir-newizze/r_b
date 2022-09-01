@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\UserCodeNotification;
+use App\User;
+use App\Verifications;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -41,19 +44,33 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        return response()->json([
+        response()->json([
             $request->validate([
-                'customer_id' => 'required|integer|max:9',
+                'customer_id' => 'required|integer|between:0,999999999',
             ])
         ]);
+
+        return $this->check($request);
     }
 
-    public function verification(Request $request)
+    public function check(Request $request)
     {
+        if ($user = User::where('customer_id', $request->get('customer_id'))->first()) {
+            $code = Verifications::create([
+                'user_id' => $user->id,
+                'code' => rand(00000, 99999),
+            ]);
+
+            return response()->json([
+                'result' => true,
+                'user' => $user,
+                'message' => $code->code
+            ]);
+        }
+
         return response()->json([
-            $request->validate([
-                'code' => 'required|integer|between:0,99999',
-            ])
-        ]);
+            'result' => false,
+            'errors' => ['User not found']
+        ], 422);
     }
 }

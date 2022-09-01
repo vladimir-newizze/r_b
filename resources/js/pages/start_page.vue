@@ -54,7 +54,7 @@ export default {
 			axios.post('/login', this.form)
 				.then(() => {
 					console.log('success');
-					this.$router.push("/home");
+					this.$router.push("/verification_page");
 				})
 				.catch((error) => {
 					let errors = Object.values(error.response.data.errors).flat();
