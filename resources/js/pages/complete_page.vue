@@ -9,7 +9,7 @@
 				<h3>Success Login</h3>
 				<p>Congratulations! You you successfully login to Loan In Click</p>
 				<hr>
-				<form @submit="back" id="back">
+				<form @submit="back">
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary btn-block btn-lg">Logout</button>
 					</div>

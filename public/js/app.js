@@ -2057,6 +2057,7 @@ __webpack_require__.r(__webpack_exports__);
         customer_id: ''
       },
       errors: {},
+      message: '777',
       clicks: 0,
       success: false
     };
@@ -2067,7 +2068,8 @@ __webpack_require__.r(__webpack_exports__);
 
       e.preventDefault();
       this.errors = [];
-      axios.post('/login', this.form).then(function () {
+      this.message = 123;
+      axios.post('/login', this.form).then(function (respone) {
         console.log('success');
 
         _this.$router.push("/verification_page");
@@ -2132,12 +2134,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['message'],
   data: function data() {
     return {
       form: {
         customer_id: ''
       },
       errors: {},
+      code: this.message,
       success: false
     };
   },
@@ -2145,6 +2149,7 @@ __webpack_require__.r(__webpack_exports__);
     verification: function verification(e) {
       var _this = this;
 
+      console.log(this.message);
       e.preventDefault();
       this.errors = [];
       axios.post('/verification', this.form).then(function () {
@@ -2251,9 +2256,6 @@ var render = function render() {
       d: "M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
     }
   })]), _vm._v(" "), _c("h3", [_vm._v("Success Login")]), _vm._v(" "), _c("p", [_vm._v("Congratulations! You you successfully login to Loan In Click")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "back"
-    },
     on: {
       submit: _vm.back
     }
@@ -2324,9 +2326,6 @@ var render = function render() {
       staticClass: "list-group-item list-group-item-danger"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "identity"
-    },
     on: {
       submit: _vm.identity
     }
@@ -2547,9 +2546,6 @@ var render = function render() {
       staticClass: "list-group-item list-group-item-danger"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "registration"
-    },
     on: {
       submit: _vm.registration
     }
@@ -2741,9 +2737,6 @@ var render = function render() {
       staticClass: "list-group-item list-group-item-danger"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "login"
-    },
     on: {
       submit: _vm.login
     }
@@ -2847,9 +2840,6 @@ var render = function render() {
       d: "M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
     }
   })]), _vm._v(" "), _c("h3", [_vm._v("Complete Registration")]), _vm._v(" "), _c("p", [_vm._v("Hey dude! Welcome to Loan In Click, please check Your mailbox and confirm account")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "back"
-    },
     on: {
       submit: _vm.back
     }
@@ -2907,7 +2897,7 @@ var render = function render() {
     attrs: {
       d: "M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Verification")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(true) + " and put the verification code here")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", [_vm._v("Verification")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(_vm.code) + " and put the verification code here")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(_vm.message) + " and put the verification code here")]), _vm._v(" "), _vm.message ? _c("p", [_vm._v("\n\t\t\t\tYour verification code is " + _vm._s(_vm.message) + "\n\t\t\t")]) : _vm._e(), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"
@@ -2916,9 +2906,6 @@ var render = function render() {
       staticClass: "list-group-item list-group-item-danger"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
-    attrs: {
-      id: "verification"
-    },
     on: {
       submit: _vm.verification
     }
@@ -37930,8 +37917,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/User/DEV/r_b_test/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/User/DEV/r_b_test/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/User/DEV/test-task/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/User/DEV/test-task/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

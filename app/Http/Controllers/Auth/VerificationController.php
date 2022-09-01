@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\User;
 use App\Verifications;
-use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 
 class VerificationController extends Controller
@@ -16,15 +13,6 @@ class VerificationController extends Controller
     | Verification Controller
     |--------------------------------------------------------------------------
     */
-
-    use VerifiesEmails;
-
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,7 +24,7 @@ class VerificationController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function verification(Request $request)
+    public function verification(Request $request): ?object
     {
         response()->json([
             $request->validate([
@@ -47,7 +35,7 @@ class VerificationController extends Controller
         return $this->check($request);
     }
 
-    public function check(Request $request)
+    public function check(Request $request): ?object
     {
         if ($code = Verifications::where('code', $request->code)->first()) {
             $code->delete();

@@ -43,7 +43,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function registration(Request $request)
+    public function registration(Request $request): ?object
     {
         response()->json([
             $request->validate([
@@ -57,11 +57,11 @@ class RegisterController extends Controller
         return $this->create($request);
     }
 
-    public function identify(Request $request)
+    public function identify(Request $request): ?object
     {
         return response()->json([
             $request->validate([
-                'card' => 'required|integer|digits_between:1,17',
+                'card' => 'required|integer|digits_between:16,17',
                 'cardholder' => 'required|regex:/^[a-zA-Z0-9\s]+$/|max:25',
                 'mounth' => 'required|string|in:01,02,03,04,05,06,07,08,09,10,11,12',
                 'year' => 'required|integer|between:22,99',
@@ -70,7 +70,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function create(Request $request): ?object
     {
         try {
             if (User::where('email', $request->email)->exists()) {

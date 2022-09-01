@@ -17,7 +17,7 @@
 					</ul>
 					</p>
 				</div>
-				<form @submit="identity" id="identity">
+				<form @submit="identity">
 					<div class="form-group">
 						<label for="card">Card number</label>
 						<input v-model="form.card" type="text" class="form-control" placeholder="Ex. 0000 0000 0000 0000">

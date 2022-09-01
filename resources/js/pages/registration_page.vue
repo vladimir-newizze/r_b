@@ -17,7 +17,7 @@
 					</ul>
 					</p>
 				</div>
-				<form @submit="registration" id="registration">
+				<form @submit="registration">
 					<div class="form-group">
 						<label for="name">Your name</label>
 						<input v-model="form.name" type="text" class="form-control" placeholder="Ex. Robert Smith">

@@ -17,7 +17,7 @@
 					</ul>
 					</p>
 				</div>
-				<form @submit="login" id="login">
+				<form @submit="login">
 					<div class="form-group">
 						<label for="customer_id">Customer ID</label>
 						<input v-model="form.customer_id" type="text" class="form-control" placeholder="Ex. 123456789">
@@ -42,6 +42,7 @@ export default {
 				customer_id: ''
 			},
 			errors: {},
+			message: '777',
 			clicks: 0,
 			success: false
 		}
@@ -50,10 +51,12 @@ export default {
 		login: function (e) {
 			e.preventDefault();
 			this.errors = [];
+			this.message = 123;
 
 			axios.post('/login', this.form)
-				.then(() => {
+				.then((respone) => {
 					console.log('success');
+					
 					this.$router.push("/verification_page");
 				})
 				.catch((error) => {

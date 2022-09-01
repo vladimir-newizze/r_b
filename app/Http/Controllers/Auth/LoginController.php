@@ -42,7 +42,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): ?object
     {
         response()->json([
             $request->validate([
@@ -53,7 +53,7 @@ class LoginController extends Controller
         return $this->check($request);
     }
 
-    public function check(Request $request)
+    public function check(Request $request): ?object
     {
         if ($user = User::where('customer_id', $request->get('customer_id'))->first()) {
             $code = Verifications::create([
@@ -63,7 +63,6 @@ class LoginController extends Controller
 
             return response()->json([
                 'result' => true,
-                'user' => $user,
                 'message' => $code->code
             ]);
         }

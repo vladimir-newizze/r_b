@@ -16,7 +16,7 @@
 						</ul>
 					</p>
 				</div>
-				<form @submit="verification" id="verification">
+				<form @submit="verification">
 					<div class="form-group">
 						<input v-model="form.code" type="numeric" class="form-control" maxlength="5" size="5" placeholder="00000">
 					</div>

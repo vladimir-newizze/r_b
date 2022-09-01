@@ -9,7 +9,7 @@
 				<h3>Complete Registration</h3>
 				<p>Hey dude! Welcome to Loan In Click, please check Your mailbox and confirm account</p>
 				<hr>
-				<form @submit="back" id="back">
+				<form @submit="back">
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary btn-block btn-lg">Back to Login</button>
 					</div>
