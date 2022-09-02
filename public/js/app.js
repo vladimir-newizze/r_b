@@ -2249,7 +2249,11 @@ var render = function render() {
     attrs: {
       d: "M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Success Login")]), _vm._v(" "), _c("p", [_vm._v("Congratulations! You you successfully login to Loan In Click")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Success Login")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("Congratulations! You you successfully login to Loan In Click")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     on: {
       submit: _vm.back
     }
@@ -2311,13 +2315,17 @@ var render = function render() {
     attrs: {
       d: "M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Identity Verification")]), _vm._v(" "), _c("p", [_vm._v("We have not save your data, we just verfy you")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Identity Verification")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("We have not save your data, we just verfy you")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"
   }, _vm._l(_vm.errors, function (error) {
     return _c("li", {
-      staticClass: "list-group-item list-group-item-danger"
+      staticClass: "list-group-item invalid-feedback"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
     on: {
@@ -2531,13 +2539,17 @@ var render = function render() {
     attrs: {
       d: "M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Registration")]), _vm._v(" "), _c("p", [_vm._v("Create your new account")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Registration")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("Create your new account")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"
   }, _vm._l(_vm.errors, function (error) {
     return _c("li", {
-      staticClass: "list-group-item list-group-item-danger"
+      staticClass: "list-group-item invalid-feedback"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
     on: {
@@ -2722,13 +2734,17 @@ var render = function render() {
     attrs: {
       d: "M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Let's begin")]), _vm._v(" "), _c("p", [_vm._v("We'll verfy your details")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Let's begin")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("We'll verfy your details")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"
   }, _vm._l(_vm.errors, function (error) {
     return _c("li", {
-      staticClass: "list-group-item list-group-item-danger"
+      staticClass: "list-group-item invalid-feedback"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
     on: {
@@ -2833,7 +2849,11 @@ var render = function render() {
     attrs: {
       d: "M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Complete Registration")]), _vm._v(" "), _c("p", [_vm._v("Hey dude! Welcome to Loan In Click, please check Your mailbox and confirm account")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Complete Registration")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("Hey dude! Welcome to Loan In Click, please check Your mailbox and confirm account")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     on: {
       submit: _vm.back
     }
@@ -2891,13 +2911,17 @@ var render = function render() {
     attrs: {
       d: "M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Verification")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(true) + " and put the verification code here")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Verification")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("Check your Phone " + _vm._s(true) + " and put the verification code here")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"
   }, _vm._l(_vm.errors, function (error) {
     return _c("li", {
-      staticClass: "list-group-item list-group-item-danger"
+      staticClass: "list-group-item invalid-feedback"
     }, [_vm._v(_vm._s(error))]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("form", {
     on: {
