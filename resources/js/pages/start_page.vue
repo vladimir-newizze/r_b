@@ -42,7 +42,6 @@ export default {
 				customer_id: ''
 			},
 			errors: {},
-			message: '777',
 			clicks: 0,
 			success: false
 		}
@@ -51,12 +50,10 @@ export default {
 		login: function (e) {
 			e.preventDefault();
 			this.errors = [];
-			this.message = 123;
 
 			axios.post('/login', this.form)
-				.then((respone) => {
+				.then(() => {
 					console.log('success');
-					
 					this.$router.push("/verification_page");
 				})
 				.catch((error) => {

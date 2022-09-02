@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\CreditClearing;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -11,27 +12,16 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
+use App\Service\MeshulamService;
+use App\Service\MeshulamServiceInterface;
+
 class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
     */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -57,9 +47,9 @@ class RegisterController extends Controller
         return $this->create($request);
     }
 
-    public function identify(Request $request): ?object
+    public function identify(Request $request, MeshulamServiceInterface $service)
     {
-        return response()->json([
+        response()->json([
             $request->validate([
                 'card' => 'required|integer|digits_between:16,17',
                 'cardholder' => 'required|regex:/^[a-zA-Z0-9\s]+$/|max:25',
@@ -68,6 +58,8 @@ class RegisterController extends Controller
                 'cvv' => 'required|integer|between:0,999',
             ])
         ]);
+
+        return $this->process($request, $service);
     }
 
     public function create(Request $request): ?object
@@ -80,7 +72,7 @@ class RegisterController extends Controller
                 ], 422);
             }
 
-            User::create([
+            $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -88,7 +80,8 @@ class RegisterController extends Controller
             ]);
 
             return response()->json([
-                'success' => true
+                'success' => true,
+                'message' => $user
             ]);
         } catch (\Throwable $exception) {
             return response()->json([
@@ -96,5 +89,16 @@ class RegisterController extends Controller
                 'errors' => $exception->getMessage()
             ], 422);
         }
+    }
+
+    public function process(Request $request, MeshulamServiceInterface $service)
+    {
+        $creditClearing = new CreditClearing($service);
+        $paymentResone = $creditClearing->getPeleCardAuthorizeCreditCard($request);
+
+        return response()->json([
+            'success' => true,
+            'message' => $paymentResone,
+        ]);
     }
 }

@@ -55,7 +55,6 @@
 </template>
 <script>
 export default {
-	name: "identify_page",
 	data() {
 		return {
 			form: {

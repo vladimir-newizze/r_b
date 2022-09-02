@@ -1958,7 +1958,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "identify_page",
   data: function data() {
     return {
       form: {
@@ -2057,7 +2056,6 @@ __webpack_require__.r(__webpack_exports__);
         customer_id: ''
       },
       errors: {},
-      message: '777',
       clicks: 0,
       success: false
     };
@@ -2068,8 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
 
       e.preventDefault();
       this.errors = [];
-      this.message = 123;
-      axios.post('/login', this.form).then(function (respone) {
+      axios.post('/login', this.form).then(function () {
         console.log('success');
 
         _this.$router.push("/verification_page");
@@ -2134,14 +2131,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['message'],
   data: function data() {
     return {
       form: {
         customer_id: ''
       },
       errors: {},
-      code: this.message,
       success: false
     };
   },
@@ -2149,7 +2144,6 @@ __webpack_require__.r(__webpack_exports__);
     verification: function verification(e) {
       var _this = this;
 
-      console.log(this.message);
       e.preventDefault();
       this.errors = [];
       axios.post('/verification', this.form).then(function () {
@@ -2897,7 +2891,7 @@ var render = function render() {
     attrs: {
       d: "M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
     }
-  })]), _vm._v(" "), _c("h3", [_vm._v("Verification")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(_vm.code) + " and put the verification code here")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(_vm.message) + " and put the verification code here")]), _vm._v(" "), _vm.message ? _c("p", [_vm._v("\n\t\t\t\tYour verification code is " + _vm._s(_vm.message) + "\n\t\t\t")]) : _vm._e(), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("h3", [_vm._v("Verification")]), _vm._v(" "), _c("p", [_vm._v("Check your Phone " + _vm._s(true) + " and put the verification code here")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 text-center"
   }, [_vm.errors.length ? _c("p", [_c("b", [_vm._v("Please correct the following error(s):")]), _vm._v(" "), _c("ul", {
     staticClass: "list-group"

@@ -13,7 +13,7 @@ class MeshulamServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Service\MeshulamServiceInterface', 'App\Service\MeshulamService');
     }
 
     /**
